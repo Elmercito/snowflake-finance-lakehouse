@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw_finance
+    database: FINANCE_LAKEHOUSE
+    schema: BRONZE
+    tables:
+      - name: STOCK_PRICES_RAW

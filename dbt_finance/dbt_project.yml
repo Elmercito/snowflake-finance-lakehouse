@@ -1,0 +1,16 @@
+name: 'dbt_finance'
+version: '1.0.0'
+config-version: 2
+
+profile: 'dbt_finance'
+
+model-paths: ["models"]
+
+models:
+  dbt_finance:
+    silver:
+      +schema: SILVER
+      +materialized: table
+    gold:
+      +schema: GOLD
+      +materialized: table

@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: dim_stocks
+    columns:
+      - name: STOCK_KEY
+        tests:
+          - unique
+          - not_null
+      - name: CURRENCY
+        tests:
+          - accepted_values:
+              values: ['CAD', 'USD']
+
+  - name: fact_daily_market
+    columns:
+      - name: STOCK_KEY
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_stocks')
+              field: STOCK_KEY
+      - name: CLOSE_PRICE
+        tests:
+          - not_null
